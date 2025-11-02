@@ -139,13 +139,11 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
 
-## 📝 Licence
 
-Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## 👤 Auteur
 
-Votre Nom - [@votre-twitter](https://twitter.com/votre-twitter)
+Votre Nom - VanMich_dev
 
 ## 🙏 Remerciements
 

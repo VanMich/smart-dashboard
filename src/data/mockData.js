@@ -22,3 +22,19 @@ export const transactions = [
   { id: 4, client: "Eric N'Diaye", montant: 340, date: "2025-10-10" },
   { id: 5, client: "Sonia Mbappe", montant: 180, date: "2025-10-12" },
 ];
+
+// // Fonction pour compter les clients uniques
+// export const getUniqueClientsCount = () => {
+//   const uniqueClients = new Set(
+//     transactions.map((transaction) => transaction.client)
+//   );
+//   return uniqueClients.size;
+// };
+
+// // Fonction pour obtenir la liste des clients uniques
+// export const getUniqueClients = () => {
+//   const uniqueClients = new Set(
+//     transactions.map((transaction) => transaction.client)
+//   );
+//   return Array.from(uniqueClients);
+// };

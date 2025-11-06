@@ -1,10 +1,27 @@
 import { motion } from "framer-motion";
 
+import { salesData, transactions } from "../data/mockData";
 import ChartCard from "../components/ChartCard";
 import TransactionTable from "../components/TransactionTable";
-import { salesData, transactions } from "../data/mockData";
+import { useEffect, useState } from "react";
+import { getSales, getTransactions } from "../utils/firebaseUtils";
 
 const Dashboard = () => {
+  //state pour stocker les ventes recuperees depuis firestore
+  const [saleData, setSalesData] = useState([]);
+  //state pour stocker les transactions recupees depuis firestore
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const sales = await getSales();
+      const trans = await getTransactions();
+      setTransactions(trans);
+      setSalesData(sales);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div>
       <h3 className="text-lg font-semibold mb-4">Vue d’ensemble</h3>
@@ -18,22 +35,30 @@ const Dashboard = () => {
       >
         <div className="bg-white p-4 rounded-xl shadow-md">
           <p className="text-gray-500">Total ventes</p>
-          <h2 className="text-2xl font-bold text-blue-600">45 000 FCFA</h2>
+          <h2 className="text-2xl font-bold text-blue-600">
+            {saleData > 0
+              ? `${saleData.reduce((acc, s) => acc + s.sales, 0)} FCFA`
+              : "chargement..."}
+          </h2>
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow-md">
           <p className="text-gray-500">Commandes</p>
-          <h2 className="text-2xl font-bold text-green-600">350</h2>
+          <h2 className="text-2xl font-bold text-green-600">
+            {transactions.length}
+          </h2>
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow-md">
           <p className="text-gray-500">Clients</p>
-          <h2 className="text-2xl font-bold text-yellow-500">125</h2>
+          <h2 className="text-2xl font-bold text-yellow-500">
+            {transactions.length}
+          </h2>
         </div>
       </motion.div>
 
       {/* Graphique des ventes */}
-      <ChartCard data={salesData} />
+      {saleData.length > 0 && <ChartCard data={salesData} />}
 
       {/* Tableau transactions */}
       <TransactionTable transactions={transactions} />

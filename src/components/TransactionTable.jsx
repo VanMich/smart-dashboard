@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const TransactionTable = ({ transactions }) => {
@@ -11,19 +10,22 @@ const TransactionTable = ({ transactions }) => {
     >
       <h4 className="text-lg font-semibold mb-4">Transactions récentes</h4>
       <table className="w-full text-left border-collapse">
-        <thead>
+        <thead className="bg-gray-50">
           <tr className="border-b">
-            <th className="p-2">Client</th>
-            <th className="p-2">Montant (€)</th>
-            <th className="p-2">Date</th>
+            <th className="text-left p-3 text-gray-700">Client</th>
+            <th className="text-left p-3 text-gray-700">Montant (€)</th>
+            <th className="text-left p-3 text-gray-700">Date</th>
           </tr>
         </thead>
         <tbody>
           {transactions.map((t) => (
-            <tr key={t.id} className="hover:bg-gray-50 border-b">
-              <td className="p-2">{t.client}</td>
-              <td className="p-2 font-semibold text-blue-600">{t.montant}</td>
-              <td className="p-2">{t.date}</td>
+            <tr
+              key={t.id}
+              className="border-b hover:bg-gray-50 transition-colors"
+            >
+              <td className="p-3 text-gray-800">{t.client}</td>
+              <td className="p-3 text-gray-800">{t.montant}</td>
+              <td className="p-3 text-gray-500">{t.date}</td>
             </tr>
           ))}
         </tbody>

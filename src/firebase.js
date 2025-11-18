@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -8,15 +9,16 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCkwxu2UBQ0Ax5-RO2jL6Hckv1hHHSMjbw",
-  authDomain: "smartdashboard-2044e.firebaseapp.com",
-  projectId: "smartdashboard-2044e",
-  storageBucket: "smartdashboard-2044e.firebasestorage.app",
-  messagingSenderId: "540364483219",
-  appId: "1:540364483219:web:965502fa0d983303083b66",
-  measurementId: "G-XE0RGP0CPY",
+  apiKey: "AIzaSyD5t3mRlxWxLf5zLyCCbL7NWHlhNeUHGbQ",
+  authDomain: "smartdashboard-4d95e.firebaseapp.com",
+  projectId: "smartdashboard-4d95e",
+  storageBucket: "smartdashboard-4d95e.firebasestorage.app",
+  messagingSenderId: "990914024941",
+  appId: "1:990914024941:web:8fa721bac68f59453b43e4",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 export const db = getFirestore(app);
+export const auth = getAuth(app);
